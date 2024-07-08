@@ -11,6 +11,7 @@ import com.simplifit.repository.BodyMeasurementsJPARepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import javax.persistence.EntityNotFoundException;
 import java.util.List;
 
 @Service
@@ -38,7 +39,8 @@ public class UnifiedService {
     }
 
     public UserInfo getUserById(Integer id) {
-        return userInfoRepository.findById(id).orElse(null);
+        return userInfoRepository.findById(id)
+                .orElseThrow(() -> new EntityNotFoundException("User with id " + id + " not found"));
     }
 
     public UserInfo saveUser(UserInfo user) {
@@ -46,6 +48,9 @@ public class UnifiedService {
     }
 
     public void deleteUser(Integer id) {
+        if (!userInfoRepository.existsById(id)) {
+            throw new EntityNotFoundException("User with id " + id + " not found");
+        }
         userInfoRepository.deleteById(id);
     }
 
@@ -55,7 +60,8 @@ public class UnifiedService {
     }
 
     public HealthMetrics getHealthMetricsById(Long id) {
-        return healthMetricsRepository.findById(id).orElse(null);
+        return healthMetricsRepository.findById(id)
+                .orElseThrow(() -> new EntityNotFoundException("HealthMetrics with id " + id + " not found"));
     }
 
     public HealthMetrics saveHealthMetrics(HealthMetrics healthMetrics) {
@@ -63,6 +69,9 @@ public class UnifiedService {
     }
 
     public void deleteHealthMetrics(Long id) {
+        if (!healthMetricsRepository.existsById(id)) {
+            throw new EntityNotFoundException("HealthMetrics with id " + id + " not found");
+        }
         healthMetricsRepository.deleteById(id);
     }
 
@@ -72,7 +81,8 @@ public class UnifiedService {
     }
 
     public PersonalEvaluation getPersonalEvaluationById(Long id) {
-        return personalEvaluationRepository.findById(id).orElse(null);
+        return personalEvaluationRepository.findById(id)
+                .orElseThrow(() -> new EntityNotFoundException("Personal Evaluation with id " + id + " not found"));
     }
 
     public PersonalEvaluation savePersonalEvaluation(PersonalEvaluation personalEvaluation) {
@@ -80,6 +90,9 @@ public class UnifiedService {
     }
 
     public void deletePersonalEvaluation(Long id) {
+        if (!personalEvaluationRepository.existsById(id)) {
+            throw new EntityNotFoundException("Personal Evaluation with id " + id + " not found");
+        }
         personalEvaluationRepository.deleteById(id);
     }
 
@@ -89,7 +102,8 @@ public class UnifiedService {
     }
 
     public BodyMeasurements getBodyMeasurementsById(Long id) {
-        return bodyMeasurementsRepository.findById(id).orElse(null);
+        return bodyMeasurementsRepository.findById(id)
+                .orElseThrow(() -> new EntityNotFoundException("BodyMeasurements with id " + id + " not found"));
     }
 
     public BodyMeasurements saveBodyMeasurements(BodyMeasurements bodyMeasurements) {
@@ -97,6 +111,9 @@ public class UnifiedService {
     }
 
     public void deleteBodyMeasurements(Long id) {
+        if (!bodyMeasurementsRepository.existsById(id)) {
+            throw new EntityNotFoundException("BodyMeasurements with id " + id + " not found");
+        }
         bodyMeasurementsRepository.deleteById(id);
     }
 

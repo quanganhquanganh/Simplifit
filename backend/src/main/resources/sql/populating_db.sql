@@ -7,9 +7,9 @@ VALUES
 
 INSERT INTO health_metrics (user_id, date, weight, body_fat_percentage, visceral_fat_percentage, rm_kcal, bmi, body_age, whole_body_sf, whole_body_skm, trunk_sf, trunk_skm, arms_sf, arms_skm, legs_sf, legs_skm)
 VALUES
-(1, '2024-05-01', 82.0, 18.5, 10.0, 1800.0, 25.5, 32, 20.0, 35.0, 15.0, 20.0, 10.0, 15.0, 12.0, 18.0),
-(2, '2024-05-02', 60.5, 22.0, 12.5, 1500.0, 22.5, 28, 18.0, 32.0, 12.0, 18.0, 8.0, 12.0, 10.0, 15.0),
-(3, '2024-05-03', 95.0, 25.0, 15.0, 2000.0, 29.0, 40, 22.0, 38.0, 18.0, 24.0, 14.0, 18.0, 14.0, 20.0);
+(1, '2024-05-01', 82.0, 18.5, 10.0, 800.0, 25.5, 32, 20.0, 35.0, 15.0, 20.0, 10.0, 15.0, 12.0, 18.0),
+(2, '2024-05-02', 60.5, 22.0, 12.5, 500.0, 22.5, 28, 18.0, 32.0, 12.0, 18.0, 8.0, 12.0, 10.0, 15.0),
+(3, '2024-05-03', 95.0, 25.0, 15.0, 400.0, 29.0, 40, 22.0, 38.0, 18.0, 24.0, 14.0, 18.0, 14.0, 20.0);
 
 
 INSERT INTO personal_evaluation (user_id, favorite_snacks, breakfast, daily_water, veg_non_veg, lunch, eating_out, walk_exercise, dinner, surgery, stress, cravings, coffee_tea_soda, medication_for_what)
